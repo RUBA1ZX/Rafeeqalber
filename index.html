@@ -3,32 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>بطاقة رفيق البر</title>
+    <title>رفيق البر</title>
     
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="رفيق البر">
     
-    <link rel="manifest" href="data:application/manifest+json,{%22name%22:%22%D8%B1%D9%81%D9%8A%D9%82%20%D8%A7%D9%84%20%D8%A7%D9%84%D8%A8%D8%B1%22,%22short_name%22:%22%D8%A7%D9%84%D8%A8%D8%B1%22,%22display%22:%22standalone%22,%22start_url%22:%22/index.html%22,%22background_color%22:%22#004d4d%22,%22theme_color%22:%22#004d4d%22,%22icons%22:[{%22src%22:%22https://i.postimg.cc/3xDHZMSk/IMG-4037.jpg%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/3xDHZMSk/IMG-4037.jpg">
+    <link rel="icon" href="https://i.postimg.cc/3xDHZMSk/IMG-4037.jpg">
 
     <style>
-        body { background-color: #003333; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
-        .card-container { width: 90%; max-width: 400px; text-align: center; animation: fadeIn 1.5s ease; }
-        .main-card { width: 100%; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); }
-        .instruction { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 15px; border-radius: 15px; margin-top: 25px; color: white; font-size: 0.9rem; border: 1px dashed #ffcc00; }
-        .btn-bot { display: inline-block; margin-top: 20px; background: #ffcc00; color: #003333; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        body { 
+            background-color: #003333; 
+            margin: 0; padding: 0; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; font-family: sans-serif; 
+        }
+        .card-container { width: 90%; max-width: 400px; text-align: center; }
+        .main-card { width: 100%; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+        .instruction { background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 15px; margin-top: 25px; color: white; font-size: 0.9rem; border: 1px dashed #ffcc00; }
+        .btn-bot { display: inline-block; margin-top: 20px; background: #ffcc00; color: #003333; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="card-container">
-        <img src="https://i.postimg.cc/3xDHZMSk/IMG-4037.jpg" class="main-card" alt="بطاقة رفيق البر">
-        
+        <img src="https://i.postimg.cc/3xDHZMSk/IMG-4037.jpg" class="main-card">
         <div class="instruction">
              للاحتفاظ بالبطاقة على جوالك 📲:<br>
             اضغط <b>سهم المشاركة</b> ثم <b>"إضافة للشاشة الرئيسية"</b>
         </div>
-        
         <a href="https://t.me/YourBot" class="btn-bot">تفعيل التنبيهات (Bot) 🤖</a>
     </div>
 </body>
