@@ -24,6 +24,18 @@
         .instruction { background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 15px; margin-top: 25px; color: white; font-size: 0.9rem; border: 1px dashed #ffcc00; }
         .btn-bot { display: inline-block; margin-top: 20px; background: #ffcc00; color: #003333; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; }
     </style>
+
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "a6c8acc6-c77d-4308-b653-1a00ddcfc003",
+    });
+  });
+</script>
+
+    
 </head>
 <body>
     <div class="card-container">
