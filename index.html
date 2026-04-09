@@ -18,7 +18,6 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js";
 
-  // بيانات مشروعك الحقيقية
   const firebaseConfig = {
     apiKey: "AIzaSyAvY09SYk1EvyfBuFVDC6Y14oxg_okokVo",
     authDomain: "rafeeqalber.firebaseapp.com",
@@ -32,30 +31,35 @@
   const app = initializeApp(firebaseConfig);
   const messaging = getMessaging(app);
 
-  // دالة طلب الإذن من المتبرع
   async function requestPermission() {
     console.log('جاري طلب الإذن...');
     try {
       const permission = await Notification.requestPermission();
       if (permission === 'granted') {
-        // ضعي هنا الـ VAPID Key اللي استخرجتيه من Firebase (Cloud Messaging tab)
+        
+        // الخطوة الجوهرية للآيفون: تسجيل الـ Service Worker يدوياً
+        const registration = await navigator.serviceWorker.register('./firebase-messaging-sw.js');
+        
         const token = await getToken(messaging, { 
-          vapidKey: 'BAR5RM0i-E1V1Ote7oQXmCttdhdV-r3vRuHY1vaZPMqergqJbqhNjLgdCCPVf9Zo2CJenni_-SMLsQY6QR3jt0M' 
+          vapidKey: 'BAR5RM0i-E1V1Ote7oQXmCttdhdV-r3vRuHY1vaZPMqergqJbqhNjLgdCCPVf9Zo2CJenni_-SMLsQY6QR3jt0M',
+          serviceWorkerRegistration: registration // ربط التسجيل بالتوكن
         });
+
         if (token) {
-          console.log("تم تفعيل الإشعارات بنجاح! التوكن:", token);
+          console.log("تم التفعيل! التوكن:", token);
           alert("تم تفعيل التنبيهات بنجاح! 🎉");
         }
       } else {
         alert("يرجى السماح بالإشعارات من إعدادات المتصفح.");
       }
     } catch (error) {
-      console.error("خطأ في تفعيل الإشعارات:", error);
+      console.error("خطأ:", error);
+      alert("حدث خطأ أثناء التفعيل، تأكدي من الاتصال بالإنترنت.");
     }
   }
 
-  // ربط الدالة بالزر الموجود في صفحتك
-  window.onload = () => {
+  // ربط الدالة بالزر
+  window.addEventListener('DOMContentLoaded', () => {
     const notifyBtn = document.querySelector('.btn-bot');
     if (notifyBtn) {
       notifyBtn.onclick = (e) => {
@@ -63,7 +67,7 @@
         requestPermission();
       };
     }
-  };
+  });
 </script>
 
     <style>
