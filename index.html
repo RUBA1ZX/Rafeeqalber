@@ -14,15 +14,24 @@
     
     <link rel="manifest" href="manifest.json">
     
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-    <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-      OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-          appId: "a6c8acc6-c77d-4308-b653-1a00ddcfc003",
-        });
-      });
-    </script>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "a6c8acc6-c77d-4308-b653-1a00ddcfc003",
+      safari_web_id: "web.onesignal.auto.1037346d-979b-443f-b258-0050e82f7c02", // تأكدي من هذا الرقم في إعدادات OneSignal Apple Push
+      notifyButton: {
+        enable: true, // سيظهر جرس صغير أسفل الصفحة للتأكد
+      },
+    });
+
+    // سطر الإبهار: اطلب الإذن فوراً إذا لم يكن مشتركاً
+    if (!OneSignal.Notifications.permission) {
+        await OneSignal.Notifications.requestPermission();
+    }
+  });
+</script>
 
     <style>
         body { 
